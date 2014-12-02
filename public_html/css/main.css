@@ -1,0 +1,44 @@
+body {
+	background: url(../img/bgkow.png) no-repeat;
+	background-size: 100%;
+	background-attachment: fixed;
+}
+div.allContent{
+	background: whitesmoke;
+	margin: 0 auto;
+	max-width: 800px;
+	width: 100%;
+	min-height: 600px;
+	text-align: center;
+}
+#centerSection{
+	display: table;
+	width: 100%;
+}
+#header{
+	height:150px;
+	background: url(../img/banner.png) no-repeat;
+	background-size: 100%
+}
+#birdFeeder{
+	display: table-cell;
+	width: 250px !important;
+	height: 615px !important;
+}
+iframe.twitter-timeline-rendered{
+	width: 225px !important;
+	height: 605px !important;
+}
+#navBar{
+	text-align: left;
+	padding: 5px;
+}
+#content{
+	width: 100%;
+	height: 100%;
+}
+#content iframe{
+	width: 100%;
+	height: 615px !important;
+	border : 0px;
+}
