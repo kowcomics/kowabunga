@@ -1,86 +1,57 @@
 <!DOCTYPE html>
-<!--
-licence header
--->
-<html>
+<html ng-app="primaryApp">
   <head>
     <title>Kowabunga Comics</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/main.css">
-    <script type="text/javascript" src="js/jquery/jquery.js"></script>
-    <script type="text/javascript" src="js/bootstrap.js"></script>
-    <script>
-      $(document).ready(function() {
-        $('body').delegate('a[data-local-link!=""]:not(.dropdown-toggle)', 'click', function() {
-          $('#mainDisplay').attr('src', $(this).attr('data-local-link'));
-        });
-      });
-    </script>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
+    <link rel="stylesheet" href="css/primaryApp.css" />
+    <link rel="stylesheet" href="css/fullcalendar.css" />
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.12.0/ui-bootstrap-tpls.min.js"></script>
+    <script src="js/mainController.js"></script>
+    <script src="js/angular-gapi.js" type="text/javascript"></script>
+    <script src="js/routingSetup.js"></script>
+    <script src="js/angular-loadscript.js"></script>
   </head>
-  <body>
+  <body ng-controller="mainController">
+      <!-- HEADER AND NAVBAR -->
     <div class="allContent">
-      <div id="header"></div>
-      <div id="navBar">
-        <a class="btn" href="#" data-local-link="html/mainContent.html">Home</a>
-        <div class="btn-group">
-          <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-            Comics
-            <span class="caret"></span>
-          </a>
-          <ul class="dropdown-menu">
-            <li><a href="#" data-local-link="html/newcomics.html">New Comics</a></li>
-            <li><a href="#" data-local-link="html/bomc.html">Book of the Month</a></li>
-            <li><a href="#" data-local-link="html/subscriber.html">Pull List/Subscription</a></li>
-            <li><a href="#" data-local-link="html/buying.html">Sell Your Comics</a></li>
-          </ul>
-        </div>
-        <div class="btn-group">
-          <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-            Graphic Novels
-            <span class="caret"></span>
-          </a>
-          <ul class="dropdown-menu">
-            <li><a href="#" data-local-link="html/ogn.html">Original Graphic Novels</a></li>
-            <li><a href="#" data-local-link="html/trades.html">Trade Hard/Paperbacks</a></li>
-          </ul>
-        </div>
-        <div class="btn-group">
-          <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-            Games
-            <span class="caret"></span>
-          </a>
-          <ul class="dropdown-menu">
-            <li><a href="#" data-local-link="html/mtg.html">Magic: The Gathering</a></li>
-            <li><a href="#" data-local-link="html/pokemon.html">Pokemon</a></li>
-            <li><a href="#" data-local-link="html/warhammer.html">Warhammer</a></li>
-            <li><a href="#" data-local-link="html/dnd.html">Dungeons &amp; Dragons</a></li>
-            <li><a href="#" data-local-link="html/board.html">Board Games</a></li>
-          </ul>
-        </div>
-        <a class="btn" href="#" data-local-link="html/videogames.html">Video Games</a>
-        <a class="btn" href="#" data-local-link="html/calendar.html">Calendar</a>
-        <a class="btn" href="#" data-local-link="html/about.html">About Us</a>
-      </div>
-      <div id="centerSection">
-        <div id="content"><iframe id="mainDisplay" src="html/mainContent.html"></iframe></div>
+      <header>
+        <div id="banner"></div>
+        <nav class="navbar navbar-default">
+          <div class="btn-group" dropdown is-open="status.isopen" ng-controller="NavBarController" 
+               ng-repeat="item in navBarLinks.items">
+            <button type="button" class="btn btn-default dropdown-toggle" dropdown-toggle ng-disabled="disabled"  ng-if="item.pages">
+              {{item.name}} <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu" ng-if="item.pages">
+              <li ng-repeat="page in item.pages"><a href="#{{page.link}}">{{page.name}}</a></li>
+            </ul>
+            <a ng-if="!item.pages" href="#{{item.link}}">
+              <button type="button" class="btn btn-default">{{item.name}}</button>
+            </a>
+          </div>
+        </nav>
+      </header>
+      <div class="centerSection">
+        <div ng-view id="primaryView"></div>
         <div id="birdFeeder">
           <span style="font-weight: bold;">
             <a class="twitter-timeline" data-widget-id="245910529422532608" href="https://twitter.com/Incredicow">Tweets by @Incredicow</a> 
-            <script>!function(d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (!d.getElementById(id)) {
-                  js = d.createElement(s);
-                  js.id = id;
-                  js.src = "js/widgets.js";
-                  fjs.parentNode.insertBefore(
-                      js,
-                      fjs);
-                }
-              }(document,
-                  "script",
-                  "twitter-wjs");</script>
+            <script>!function (d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (!d.getElementById(id)) {
+                      js = d.createElement(s);
+                      js.id = id;
+                      js.src = "js/widgets.js";
+                      fjs.parentNode.insertBefore(
+                        js,
+                        fjs);
+                    }
+                  }(document,
+                    "script",
+                    "twitter-wjs");</script>
           </span>
         </div>
       </div>
