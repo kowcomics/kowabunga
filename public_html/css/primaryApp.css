@@ -42,6 +42,7 @@ img.centerImage{
 	float: left;
 	max-width: 550px;
 	height: 615px !important;
+	overflow: auto;
 	border : 0px;
 }
 iframe.twitter-timeline-rendered{
