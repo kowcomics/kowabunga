@@ -50,14 +50,26 @@ primaryApp.constant('navBarLinks', {
         }
       ]
     }, {
-      name: 'Graphic Novels',
+      name: 'Games',
       pages: [{
-          link: 'ogn',
-          name: 'Original Graphic Novels'
+          link: 'mtg',
+          name: 'Magic: The Gathering'
         },
         {
-          link: 'trades',
-          name: 'Trade Hard/Paperbacks'
+          link: 'pokemon',
+          name: 'Pokemon'
+        },
+        {
+          link: 'warhammer',
+          name: 'Warhammer'
+        },
+        {
+          link: 'dnd',
+          name: 'Dungeons & Dragons'
+        },
+        {
+          link: 'board',
+          name: 'Board Games'
         }
       ]
     }, {
@@ -90,10 +102,14 @@ primaryApp.config(function ($routeProvider) {
     templateUrl: 'pages/ogn.html'
   }).when('/trades', {
     templateUrl: 'pages/trades.html'
-  }).when('/ogn', {
-    templateUrl: 'pages/ogn.html'
-  }).when('/trades', {
-    templateUrl: 'pages/trades.html'
+  }).when('/mtg', {
+    templateUrl: 'pages/mtg.html'
+  }).when('/dnd', {
+    templateUrl: 'pages/dnd.html'
+  }).when('/pokemon', {
+    templateUrl: 'pages/pokemon.html'
+  }).when('/warhammer', {
+    templateUrl: 'pages/warhammer.html'
   }).when('/videogames', {
     templateUrl: 'pages/videogames.html'
   }).when('/calendar', {
