@@ -18,7 +18,7 @@ body {
 div.allContent{
 	background: whitesmoke;
 	margin: 0 auto;
-	max-width: 800px;
+	max-width: 1000px;
 	width: 100%;
 	text-align: center;
 }
@@ -28,22 +28,19 @@ img.centerImage{
 }
 .centerSection{
 	background: whitesmoke;
-	display: table;
-	float: right;
 	column-count: 2;
-	width: 100%;
+	width:100%;
+	max-width: 1000px;
 }
 #birdFeeder{
-	float: right;
 	width: 250px !important;
 	height: 615px !important;
 }
 #primaryView{
-	float: left;
-	max-width: 550px;
 	height: 615px !important;
-	overflow: auto;
 	border : 0px;
+	display: table-cell;
+	width: auto;
 }
 iframe.twitter-timeline-rendered{
 	width: 225px !important;

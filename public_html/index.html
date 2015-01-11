@@ -5,7 +5,6 @@
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
     <link rel="stylesheet" href="css/primaryApp.css" />
-    <link rel="stylesheet" href="css/fullcalendar.css" />
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.12.0/ui-bootstrap-tpls.min.js"></script>
@@ -15,7 +14,7 @@
     <script src="js/angular-loadscript.js"></script>
   </head>
   <body ng-controller="mainController">
-      <!-- HEADER AND NAVBAR -->
+    <!-- HEADER AND NAVBAR -->
     <div class="allContent">
       <header>
         <div id="banner"></div>
@@ -34,27 +33,33 @@
           </div>
         </nav>
       </header>
-      <div class="centerSection">
-        <div ng-view id="primaryView"></div>
-        <div id="birdFeeder">
-          <span style="font-weight: bold;">
-            <a class="twitter-timeline" data-widget-id="245910529422532608" href="https://twitter.com/Incredicow">Tweets by @Incredicow</a> 
-            <script>!function (d, s, id) {
-                    var js, fjs = d.getElementsByTagName(s)[0];
-                    if (!d.getElementById(id)) {
-                      js = d.createElement(s);
-                      js.id = id;
-                      js.src = "js/widgets.js";
-                      fjs.parentNode.insertBefore(
-                        js,
-                        fjs);
-                    }
-                  }(document,
-                    "script",
-                    "twitter-wjs");</script>
-          </span>
-        </div>
-      </div>
+      <table class="centerSection">
+        <tr>
+          <td  style="vertical-align: top">
+            <div ng-view id="primaryView"></div>
+          </td>
+          <td style="vertical-align: top;width: 250px">
+            <div id="birdFeeder">
+              <span style="font-weight: bold;">
+                <a class="twitter-timeline" data-widget-id="245910529422532608" href="https://twitter.com/Incredicow">Tweets by @Incredicow</a> 
+                <script>!function(d, s, id) {
+                        var js, fjs = d.getElementsByTagName(s)[0];
+                        if (!d.getElementById(id)) {
+                          js = d.createElement(s);
+                          js.id = id;
+                          js.src = "js/widgets.js";
+                          fjs.parentNode.insertBefore(
+                            js,
+                            fjs);
+                        }
+                      }(document,
+                        "script",
+                        "twitter-wjs");</script>
+              </span>
+            </div>
+          </td>
+        </tr>
+      </table>
       <div id="footer">Kowabunga Comics 2014</div>
     </div>
   </body>
